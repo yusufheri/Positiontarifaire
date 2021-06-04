@@ -51,8 +51,7 @@ class ProductController extends AbstractController
     public function new(Request $request, ValidatorInterface $validator, LoggerInterface $logger, EntityManagerInterface $manager): Response
     {
         
-        if($request->isXmlHttpRequest()) {
-            
+        if($request->isXmlHttpRequest()) {            
             
             $product = $request->request->get('product');
             $token =$product["_token"];
@@ -60,6 +59,8 @@ class ProductController extends AbstractController
             $libelle = $product["libelle"];
             $tva = $product["tva"];
             $ddi = $product["ddi"];
+            $dci = $product["dci"];
+            $dcl = $product["dcl"];
             $unite = $product["unite"];
             $date = $product["debut"];
 
@@ -100,6 +101,8 @@ class ProductController extends AbstractController
                         ->setLibelle($libelle)
                         ->setTva($tva)
                         ->setDdi($ddi)
+                        ->setDci($dci)
+                        ->setDcl($dcl)
                         ->setUnite($unite)
                         ->setDebut($date)
                         ->setUser($this->getUser());
@@ -176,6 +179,8 @@ class ProductController extends AbstractController
             $libelle = $product_form["libelle"];
             $tva = $product_form["tva"];
             $ddi = $product_form["ddi"];
+            $dci = $product_form["dci"];
+            $dcl = $product_form["dcl"];
             $unite = $product_form["unite"];
             //$date = $product["debut"];
 
@@ -213,6 +218,8 @@ class ProductController extends AbstractController
                 $product->setTva($tva);
                 $product->setDdi($ddi);
                 $product->setUnite($unite);
+                $product->setDci($dci);
+                $product->setDcl($dcl);
                         //->setDebut($date);
 
                 

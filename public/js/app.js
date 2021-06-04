@@ -49,6 +49,8 @@ $(document).ready(function(){
                         {"title": "Libellé", "data": "libelle"},
                         {"title": "Date Début", "data": "debut"},
                         {"title": "DDI", "data": "ddi"},
+                        {"title": "DCL", "data": "dcl"},
+                        {"title": "DCI", "data": "dci"},                        
                         {"title": "TVA", "data": "tva"},
                         {"title": "Unité", "data": "unite"},
                         {"title": "", "data": null}

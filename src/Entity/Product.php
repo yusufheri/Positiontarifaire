@@ -78,6 +78,20 @@ class Product
      */
     private $deletedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("product:read")
+     * @Groups("product:public")
+     */
+    private $dci;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("product:read")
+     * @Groups("product:public")
+     */
+    private $dcl;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -187,6 +201,30 @@ class Product
     public function setDeletedAt(?\DateTimeInterface $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getDci(): ?string
+    {
+        return $this->dci;
+    }
+
+    public function setDci(?string $dci): self
+    {
+        $this->dci = $dci;
+
+        return $this;
+    }
+
+    public function getDcl(): ?string
+    {
+        return $this->dcl;
+    }
+
+    public function setDcl(?string $dcl): self
+    {
+        $this->dcl = $dcl;
 
         return $this;
     }

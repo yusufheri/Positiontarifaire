@@ -27,6 +27,14 @@ class EditProductType extends AbstractType
                 'label' => 'DDI',
                 'required' => false
             ])
+            ->add('dcl', TextType::class, [
+                'label' => 'DCL',
+                'required' => false
+            ])
+            ->add('dci', TextType::class, [
+                'label' => 'DCI',
+                'required' => false
+            ])
             ->add('unite', TextType::class, [
                 'label' => 'Unité',
                 'required' => false
