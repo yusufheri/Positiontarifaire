@@ -28,18 +28,21 @@ class Product
     /**
      * @ORM\Column(type="text")
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $tva;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $ddi;
 
@@ -52,18 +55,21 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $position;
 
     /**
      * @ORM\Column(type="string")
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $debut;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("product:read")
+     * @Groups("product:public")
      */
     private $unite;
 
