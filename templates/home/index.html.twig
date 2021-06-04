@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{% block stylesheets %}
+    <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" text="text/css" href="/css/style.css" />
+{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h2 style="text-align:center;"></h2>
+            <div><img src="/images/logo.png" alt="" class="avatar"></div>
+            <h3 style="text-align:center;">Direction Générale des Douanes et Accises</h3>
+            <h1 style="text-align:center;">Bienvenue aux Positions Tarifaires ✅</h1>
+        </div>        
+    </div>
+    <div class="row mt-5">
+        <div class="col-md">
+            <a href="{{ path('app_login') }}" class="btn btn-outline-primary btn-lg" style="text-align:center;">
+                Espace réservé <i class="fa fa-lock" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    
+
+</div>
+{% endblock %}

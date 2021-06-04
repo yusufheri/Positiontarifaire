@@ -1,0 +1,7 @@
+<h2 class="font-red">Validation failed</h2>
+
+<ul>
+{% for field, errorMessage in errorMessages %}
+    <li><b>{{ field }}</b>: <span class="font-red">{{ errorMessage }}</span></li>
+{% endfor %}
+</ul>
