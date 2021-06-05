@@ -42,9 +42,9 @@ $(document).ready(function(){
                     "columns":[
                         {"title": "", "data": null, defaultContent: '' },
                         {"title": "Id", "data":"id" , "visible":false},
-                        {"title": "Créé", "data": null, render: function(data, type, row) {
+                        /*{"title": "Créé", "data": null, render: function(data, type, row) {
                             return "<center>" + moment(row.createdAt).format('DD-MM-YYYY').toString() + "</center>"
-                        }},
+                        }},*/
                         {"title": "Position Tarifaire", "data": "position"},
                         {"title": "Libellé", "data": "libelle"},
                         {"title": "Date Début", "data": "debut"},
