@@ -223,4 +223,28 @@ $(document).ready(function(){
             }
         })
     })
+
+    $("#importFile").on('click', function(e) {
+        $("#previewFileImported").modal('show')
+    })
+
+    $('#previewFileImported').on('hide.bs.modal', function (e) {
+        $.ajax({
+            url:"/dashboard/product/import",
+            method:"POST",
+            type:"POST",
+            beforeSend:function(){
+                $(".modalCompte").html("<center><h2>Chargement en cours...</h2></center>")
+                $("#FormCompte").modal('show')
+            },
+            success: function(data){
+                $(".modalCompte").html(data)
+            }, error: function(error){
+                $(".modalCompte").html(error)
+            }, complete:function(){
+                
+            }
+
+        })
+      })
 })

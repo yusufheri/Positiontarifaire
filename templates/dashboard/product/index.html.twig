@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Liste des positions tarifaires::DGDA{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
@@ -44,7 +44,8 @@
                         <button class="btn btn-circle btn-info float-right mr-3" data-toggle="modal" id="importFile">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> Importer un fichier
                         </button>  
-                        <button class="btn btn-circle btn-primary float-right mr-3" data-toggle="modal" id="addProduct">
+                        
+                        <button class="btn btn-circle btn-primary float-right mr-1" data-toggle="modal" id="addProduct">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> Nouvelle Position tarifaire
                         </button>                    
                     </div>
@@ -91,12 +92,34 @@
         </div>
 </div>
 
-<div class="modal fade" id="FormCompte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content modalCompte" id="infoBox">            
+    <div class="modal fade" id="FormCompte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content modalCompte" id="infoBox">            
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="modal fade" id="previewFileImported" tabindex="-1"  role="dialog" aria-labelledby="previewFileImportedLabel" 
+             aria-hidden="true">
+        <div class="modal-dialog modal-lg"  role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+                    <h5 class="modal-title"  id="exampleModalLabel">
+                        Aperçu de la feuille du fichier Excel à importer</h5>
+                    <button type="button"  class="close" data-dismiss="modal"  aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                    <img src="/images/import.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}
 
 {% block javascripts %}
@@ -107,45 +130,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>  
     
     <script src="/js/app.js"></script>
-<script>
-    // ---------Responsive-navbar-active-animation-----------
-    function test(){
-    var tabsNewAnim = $('#navbarSupportedContent');
-    var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
-    var activeItemNewAnim = tabsNewAnim.find('.active');
-    var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-    var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-    var itemPosNewAnimTop = activeItemNewAnim.position();
-    var itemPosNewAnimLeft = activeItemNewAnim.position();
-    $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px", 
-        "left":itemPosNewAnimLeft.left + "px",
-        "height": activeWidthNewAnimHeight + "px",
-        "width": activeWidthNewAnimWidth + "px"
-    });
-    $("#navbarSupportedContent").on("click","li",function(e){
-        $('#navbarSupportedContent ul li').removeClass("active");
-        $(this).addClass('active');
-        var activeWidthNewAnimHeight = $(this).innerHeight();
-        var activeWidthNewAnimWidth = $(this).innerWidth();
-        var itemPosNewAnimTop = $(this).position();
-        var itemPosNewAnimLeft = $(this).position();
+    <script>
+        // ---------Responsive-navbar-active-animation-----------
+        function test(){
+        var tabsNewAnim = $('#navbarSupportedContent');
+        var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+        var activeItemNewAnim = tabsNewAnim.find('.active');
+        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+        var itemPosNewAnimTop = activeItemNewAnim.position();
+        var itemPosNewAnimLeft = activeItemNewAnim.position();
         $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px", 
-        "left":itemPosNewAnimLeft.left + "px",
-        "height": activeWidthNewAnimHeight + "px",
-        "width": activeWidthNewAnimWidth + "px"
+            "top":itemPosNewAnimTop.top + "px", 
+            "left":itemPosNewAnimLeft.left + "px",
+            "height": activeWidthNewAnimHeight + "px",
+            "width": activeWidthNewAnimWidth + "px"
         });
-    });
-    }
-    $(document).ready(function(){
-    setTimeout(function(){ test(); });
-    });
-    $(window).on('resize', function(){
-    setTimeout(function(){ test(); }, 500);
-    });
-    $(".navbar-toggler").click(function(){
-    setTimeout(function(){ test(); });
-    });
-</script>
+        $("#navbarSupportedContent").on("click","li",function(e){
+            $('#navbarSupportedContent ul li').removeClass("active");
+            $(this).addClass('active');
+            var activeWidthNewAnimHeight = $(this).innerHeight();
+            var activeWidthNewAnimWidth = $(this).innerWidth();
+            var itemPosNewAnimTop = $(this).position();
+            var itemPosNewAnimLeft = $(this).position();
+            $(".hori-selector").css({
+            "top":itemPosNewAnimTop.top + "px", 
+            "left":itemPosNewAnimLeft.left + "px",
+            "height": activeWidthNewAnimHeight + "px",
+            "width": activeWidthNewAnimWidth + "px"
+            });
+        });
+        }
+        $(document).ready(function(){
+        setTimeout(function(){ test(); });
+        });
+        $(window).on('resize', function(){
+        setTimeout(function(){ test(); }, 500);
+        });
+        $(".navbar-toggler").click(function(){
+        setTimeout(function(){ test(); });
+        });
+    </script>
 {% endblock %}
