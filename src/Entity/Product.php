@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Import;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -91,6 +92,11 @@ class Product
      * @Groups("product:public")
      */
     private $dcl;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Import::class, inversedBy="products")
+     */
+    private $import;
 
     public function getId(): ?int
     {
@@ -225,6 +231,18 @@ class Product
     public function setDcl(?string $dcl): self
     {
         $this->dcl = $dcl;
+
+        return $this;
+    }
+
+    public function getImport(): ?import
+    {
+        return $this->import;
+    }
+
+    public function setImport(?import $import): self
+    {
+        $this->import = $import;
 
         return $this;
     }

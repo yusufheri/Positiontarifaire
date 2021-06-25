@@ -1,5 +1,55 @@
 
 $(document).ready(function(){  
+
+    $('#selphoto').filestyle({
+        btnClass: "btn-primary",
+        placeholder: "Aucun fichier sélectionné",
+        buttonName : 'btn btn-primary',
+        buttonText : ' Fichier Excel (.XLS, .XLXS)',
+        iconName : 'fa fa-download'
+    });
+
+    /*$("input[type=file]").change(function(){
+        alert($(this).val())
+    })*/
+
+    
+    /*
+    $("form[name=importForm]").on('submit', function(e){
+        e.preventDefault();
+
+        var form = $("form[name=importForm]");
+        console.log(form)
+        $.ajax({
+            url: "/dashboard/product/import",
+            type: 'POST',
+            method: 'POST',
+            data: form.serialize(),
+            beforeSend : function(){
+                form.notify("Enregistrement en cours ...", {className: "info", position:"t c" });
+                $("#btnSubmit").addClass('disabled')
+                $("#illustration").addClass('disabled')
+            },
+            success: function(data) {
+                //console.log(data.indexOf("succès"))
+                if(data.indexOf("succès") >= 0) {
+                    form.notify(data, {className: "success", position:"t c" }); 
+                    $('form').trigger("reset");
+                    datatable();  
+                } else {
+                    //console.log(data) //"Erreur de validation!!"
+                    form.notify(data, {className: "error", position:"t c" });
+                }              
+            }, error : function(error) {
+                form.notify(error, {className: "error", position:"t c" });
+            }, complete: function() {
+                $("#btnSubmit").removeClass('disabled')
+                $("#illustration").removeClass('disabled')
+            }
+        })
+
+    })
+    */
     
     function datatable(url = "/dashboard/product/api"){
         $('#datatable').notify("Chargement des données en cours ...", {className: "info", position:"t c" });
@@ -224,27 +274,16 @@ $(document).ready(function(){
         })
     })
 
-    $("#importFile").on('click', function(e) {
+    $("#illustration").on('click', function(e) {
+        $("#fileImport").modal('hide')
         $("#previewFileImported").modal('show')
     })
 
-    $('#previewFileImported').on('hide.bs.modal', function (e) {
-        $.ajax({
-            url:"/dashboard/product/import",
-            method:"POST",
-            type:"POST",
-            beforeSend:function(){
-                $(".modalCompte").html("<center><h2>Chargement en cours...</h2></center>")
-                $("#FormCompte").modal('show')
-            },
-            success: function(data){
-                $(".modalCompte").html(data)
-            }, error: function(error){
-                $(".modalCompte").html(error)
-            }, complete:function(){
-                
-            }
+    $("#importFile").on('click', function(e) {
+        $("#fileImport").modal('show')
+    })
 
-        })
+    $('#previewFileImported').on('hide.bs.modal', function (e) {
+        $("#fileImport").modal('show')
       })
 })

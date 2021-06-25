@@ -16,29 +16,50 @@ class ProductType extends AbstractType
         $builder
             ->add('debut', DateType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date début *'
+                'label' => 'Date début *',
+                'attr' => [
+                    'placeholder' => 'Sélectionnez la date'
+                ]
             ])
             ->add('position', TextType::class, [
-                'label' => 'Position Tarifaire *'
+                'label' => 'Position Tarifaire *',
+                'attr' => [
+                    'placeholder' => 'Saisir la position tarifaire'
+                ]
             ])
             ->add('libelle', TextType::class, [
-                'label' => 'Libellé  *'
+                'label' => 'Libellé  *',
+                'attr' => [
+                    'placeholder' => 'Saisir le libellé'
+                ]
             ])
             ->add('tva', TextType::class, [
                 'label' => 'TVA',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Saisir la TVA'
+                ]
             ])
             ->add('ddi', TextType::class, [
                 'label' => 'DDI',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Saisir le DDI'
+                ]
             ])
             ->add('dcl', TextType::class, [
                 'label' => 'DCL',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Saisir le DCL'
+                ]
             ])
             ->add('dci', TextType::class, [
                 'label' => 'DCI',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Saisir le DCI'
+                ]
             ])
             ->add('unite', TextType::class, [
                 'label' => 'Unité',

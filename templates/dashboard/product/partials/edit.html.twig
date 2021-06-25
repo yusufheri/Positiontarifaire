@@ -1,32 +1,36 @@
-<div class="card card-box">
+<!-- Modal heading -->
+<div id="message"></div>
+<div class="modal-header">
+    <h5 class="modal-title"  id="exampleModalLabel">Edition d'une position tarifaire</h5>
+    <button type="button"  class="close" data-dismiss="modal"  aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body" id="bar-parent">
     <div id="message"></div>
-    <div class="card-head">
-        <h2 id="header" class="mt-2 ml-3">Edition d'une position tarifaire</h2>
-        <hr>
+    {% set id = (product is defined)?'edit':'create' %}       
+    {{ form_start(form, {'attr': {'id': id}}) }}
+    <div class="row">
+        <div class="col-md">{{ form_row(form.position) }}</div>
     </div>
-    <div class="card-body " id="bar-parent">
-        <div id="message"></div>
-        {% set id = (product is defined)?'edit':'create' %}       
-        {{ form_start(form, {'attr': {'id': id}}) }}
-        <div class="row">
-            <div class="col-md">{{ form_row(form.position) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md">{{ form_row(form.libelle) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.ddi) }}</div>
-            <div class="col-md-4">{{ form_row(form.dcl) }}</div>
-            <div class="col-md-4">{{ form_row(form.dci) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.tva) }}</div>
-            <div class="col-md-4">{{ form_row(form.unite) }}</div>
-        </div>
-        <div class="row"> <input type="hidden" name="id" value="{{ (product is defined)? product.id:0 }}"></div>
-        {{ form_widget(form) }}
-        <button type="button" class="btn btn-circle btn-default m-b-10" id="btnCancel"><i class="fa fa-trash"></i> Annuler</button>
-        <button type="submit" class="btn btn-circle btn-primary float-right m-b-10" id="btnSave"><i class="fa fa-check"></i> Enregistrer</button>
-        {{ form_end(form) }}
+    <div class="row">
+        <div class="col-md">{{ form_row(form.libelle) }}</div>
     </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.ddi) }}</div>
+        <div class="col-md-4">{{ form_row(form.dcl) }}</div>
+        <div class="col-md-4">{{ form_row(form.dci) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.tva) }}</div>
+        <div class="col-md-4">{{ form_row(form.unite) }}</div>
+    </div>
+    <div class="row"> <input type="hidden" name="id" value="{{ (product is defined)? product.id:0 }}"></div>
+    {{ form_widget(form) }}
+    <hr>
+    <button type="button" class="btn btn-circle btn-default m-b-10" id="btnCancel"><i class="fa fa-trash"></i> Annuler</button>
+    <button type="submit" class="btn btn-circle btn-primary float-right m-b-10" id="btnSave"><i class="fa fa-check"></i> Enregistrer</button>
+    {{ form_end(form) }}
 </div>
