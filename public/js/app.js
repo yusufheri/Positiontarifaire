@@ -118,7 +118,7 @@ $(document).ready(function(){
                         {
                             targets: -1, //-1 est la dernière colonne et 0 la première colonne
                             data: null,
-                            defaultContent: '<center> <div class="btn-group"><button type="button" class="btn btn-info btn-xs dt-edit" style="margin-right:6px;"><i class="fas fa-edit"></i></button>  <button type="button" class="btn btn-danger btn-xs dt-delete" ><i class="fas fa-trash"></i></button></div></center>'
+                            defaultContent: '<center> <div class="btn-group"><button type="button" class="btn btn-info btn-xs dt-edit" style="margin-right:6px;"><i class="fas fa-eye"></i></button>  <button type="button" class="btn btn-danger btn-xs dt-delete" ><i class="fas fa-trash"></i></button></div></center>'
                         },
                         { orderable: false, searchable: false, targets: -1 } 
                     ],

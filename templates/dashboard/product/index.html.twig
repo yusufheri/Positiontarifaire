@@ -40,6 +40,9 @@
                         <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ path('dashboard_colonne_index') }}"><i class="fas fa-table"></i>Colonnes</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_logout') }}"><i class="far fa-address-book"></i>Deconnexion</a>
                     </li>
             </ul>
@@ -47,7 +50,7 @@
     </nav>
 
     <div class="container-fluid mr-3 mt-4">
-    <div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <div class="card card-box" id="datatable">
                     <div class="card-head">
@@ -58,7 +61,8 @@
                         
                         <button class="btn btn-circle btn-primary float-right mr-1" data-toggle="modal" id="addProduct">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i> Nouvelle Position tarifaire
-                        </button>                    
+                        </button>
+
                     </div>
                     <div class="card-body">
                         <div class="table-wrap">
@@ -66,32 +70,32 @@
                                 <table class="table table-hover table-bordered" id="example">
                                     <thead>
                                         <tr>
-                                            <td width="4%"></td>
-                                            <td width="1%"></td>
-                                            <td width="12%">Position</td>
-                                            <td width="33%">Libellé</td>
-                                            <td width="10%">Date début</td>
-                                            <td width="5%">DDI</td>
-                                            <td width="5%">DCL</td>
-                                            <td width="5%">DCI</td>
-                                            <td width="5%">TVA</td>
-                                            <td width="10%">Unité</td>
-                                            <td width="10%"></td>
+                                            <th width="4%"></th>
+                                            <th width="1%"></th>
+                                            <th width="12%">Position</th>
+                                            <th width="33%">Libellé</th>
+                                            <th width="10%">Date début</th>
+                                            <th width="5%">DDI</th>
+                                            <th width="5%">DCL</th>
+                                            <th width="5%">DCI</th>
+                                            <th width="5%">TVA</th>
+                                            <th width="5%">Unité</th>
+                                            <th width="15%"></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <td width="4%"></td>
-                                            <td width="1%"></td>
-                                            <td width="12%">Position</td>
-                                            <td width="33%">Libellé</td>
-                                            <td width="10%">Date début</td>
-                                            <td width="5%">DDI</td>
-                                            <td width="5%">DCL</td>
-                                            <td width="5%">DCI</td>
-                                            <td width="5%">TVA</td>
-                                            <td width="10%">Unité</td>
-                                            <td width="10%"></td>
+                                            <th width="4%"></th>
+                                            <th width="1%"></th>
+                                            <th width="12%">Position</th>
+                                            <th width="33%">Libellé</th>
+                                            <th width="10%">Date début</th>
+                                            <th width="5%">DDI</th>
+                                            <th width="5%">DCL</th>
+                                            <th width="5%">DCI</th>
+                                            <th width="5%">TVA</th>
+                                            <th width="5%">Unité</th>
+                                            <th width="15%"></th>
                                         </tr>
                                     </tfoot>                                
                                 </table>
@@ -101,7 +105,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
     <div class="modal fade" id="FormCompte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

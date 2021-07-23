@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Entity\Import;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -97,6 +99,17 @@ class Product
      * @ORM\ManyToOne(targetEntity=Import::class, inversedBy="products")
      */
     private $import;
+
+    /**
+     * @ORM\OneToMany(targetEntity=DetailProduct::class, mappedBy="product")
+     * @Groups("product:read")
+     */
+    private $detailProducts;
+
+    public function __construct()
+    {
+        $this->detailProducts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -243,6 +256,36 @@ class Product
     public function setImport(?import $import): self
     {
         $this->import = $import;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DetailProduct[]
+     */
+    public function getDetailProducts(): Collection
+    {
+        return $this->detailProducts;
+    }
+
+    public function addDetailProduct(DetailProduct $detailProduct): self
+    {
+        if (!$this->detailProducts->contains($detailProduct)) {
+            $this->detailProducts[] = $detailProduct;
+            $detailProduct->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetailProduct(DetailProduct $detailProduct): self
+    {
+        if ($this->detailProducts->removeElement($detailProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($detailProduct->getProduct() === $this) {
+                $detailProduct->setProduct(null);
+            }
+        }
 
         return $this;
     }

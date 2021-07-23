@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DetailProduct index{% endblock %}
+
+{% block body %}
+    <h1>DetailProduct index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>CreatedAt</th>
+                <th>Name</th>
+                <th>DeletedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for detail_product in detail_products %}
+            <tr>
+                <td>{{ detail_product.id }}</td>
+                <td>{{ detail_product.createdAt ? detail_product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ detail_product.name }}</td>
+                <td>{{ detail_product.deletedAt ? detail_product.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('dashboard_detail_product_show', {'id': detail_product.id}) }}">show</a>
+                    <a href="{{ path('dashboard_detail_product_edit', {'id': detail_product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dashboard_detail_product_new') }}">Create new</a>
+{% endblock %}

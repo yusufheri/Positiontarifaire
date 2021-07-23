@@ -5,11 +5,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="OptSolution est une application web destinée aux Etablissements Supérieurs et Universitaires. Pour son lancement de sa version web, l'entreprise ENYWORK choisit de travailler avce l'INBTP.">
+    <meta name="description" content="ENYWORK SARL">
     <meta name="YUSUF HERI" content="CEO at ENYWORK">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Institut National du Batiment et des Travaux Publics::OptSolution</title>
+    <title>Positions tarifaires::DGDA</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -109,7 +109,12 @@
                         </div>
                         <div class="left-text">
                             <p>Les agents de la Direction Générale des Douanes et Accises (<a href="https://www.douane.gouv.cd/" target="_blank"> D.G.D.A</a>) sont dotés d'une application mobile (Android et iOs)  permettant de consulter les positions tarifaires sans la connexion internet à partir de leur téléphone.</p>
-                            <a href="{{path('app_login')}}" class="main-button"><i class="fa fa-user"></i> Connectez-vous</a>
+                            {% if app.user is not null %}
+                            <a href="{{path('dashboard_product')}}" class="main-button"><i class="fa fa-user"></i> Dashboard</a>
+                            {% else %}
+                                <a href="{{path('app_login')}}" class="main-button"><i class="fa fa-user"></i> Connectez-vous</a>
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
